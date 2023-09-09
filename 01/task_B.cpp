@@ -8,17 +8,17 @@ const int length = 5;
 const int HIGH = 20;
 const int LOW = 10;
 
-void read_temperatures(double temps[]);
+void read_temperatures(double temps[], int len);
 void count_temperatures(double temps[]);
 
 int main() {
     double temperatures[length];
-    read_temperatures(temperatures);
+    read_temperatures(temperatures, length);
     count_temperatures(temperatures);
     return 0;
 }
 
-void read_temperatures(double temps[]) {
+void read_temperatures(double temps[], int len) {
     const char filename[] = "temperatures.txt";
     ifstream file;
     file.open(filename);
@@ -29,7 +29,7 @@ void read_temperatures(double temps[]) {
 
     int i = 0;
     double temp;
-    while (file >> temp) {
+    while (file >> temp && i < len) {
         temps[i++] = temp;
     }
     file.close();

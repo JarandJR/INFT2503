@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.26)
+project(02)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(simple lecture/simple_pointer.cpp)
+add_executable(const lecture/const_pointers.cpp)
+add_executable(arithmetic lecture/arithmetic_on_pointers.cpp)
+add_executable(021A task1/task_a.cpp)
+add_executable(021B task1/task_b.cpp)
+add_executable(022 task2.cpp)
+add_executable(023 task3.cpp)
+add_executable(024 task4.cpp)
+add_executable(025 task5.cpp)
+add_executable(026 task6.cpp)
