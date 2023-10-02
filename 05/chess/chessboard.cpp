@@ -2,35 +2,12 @@
 #include <memory>
 #include <vector>
 #include "piece.cpp"
+#include "king.cpp"
 
 using namespace std;
 
 class ChessBoard {
 public:
-    class King : public Piece {
-    public:
-        explicit King(Color color) : Piece(color) {}
-
-        std::string type() const override {return  color_string() + " king";}
-
-        bool valid_move(int from_x, int from_y, int to_x, int to_y) const override {
-            //implement method
-            return false;
-        }
-    };
-
-    class Knight : public Piece {
-    public:
-        explicit Knight(Color color) : Piece(color) {}
-
-        std::string type() const override {return color_string() + " knight";}
-
-        bool valid_move(int from_x, int from_y, int to_x, int to_y) const override {
-            //implement method
-            return false;
-        }
-    };
-
     ChessBoard() {
         // Initialize the squares stored in 8 columns and 8 rows:
         squares.resize(8);
@@ -59,20 +36,48 @@ public:
                         if (auto king = dynamic_cast<King *>(piece_to.get()))
                             cout << king->color_string() << " lost the game" << endl;
                     } else {
-                        // piece in the from square has the same color as the piece in the to squ
+                        // piece in the from-square has the same color as the piece in the to-square
                         cout << "can not move " << piece_from->type() << " from " << from << " to " << to << endl;
                         return false;
                     }
                 }
-                piece_to = move(piece_from);
+                piece_to = std::move(piece_from);
+                print_board();
                 return true;
             } else {
-                cout << "can not move " << piece_from->type() << " from " << from << " to " << endl;
+                cout << "can not move " << piece_from->type() << " from " << from << " to " << to << endl;
                 return false;
             }
         } else {
             cout << "no piece at " << from << endl;
+            print_board();
             return false;
         }
+    }
+
+    void print_board() {
+        string abc[] = {" A", " B", " C", " D", " E", " F", " G", " H"};
+        int counter = 0;
+
+        string board = "--------------------------\n";
+        for (auto &row : squares) {
+            board.append("|");
+            for (const auto & p : row) {
+                if (p != nullptr) {
+                    board.append(" ").
+                            append(p->symbol()).
+                            append(" ");
+                } else {
+                    board.append(" - ");
+                }
+            }
+            board.append("|")
+            .append(abc[counter++])
+            .append("\n");
+        }
+        board.append("--------------------------\n").
+                append("| 1  2  3  4  5  6  7  8 |");
+        cout << "Printing board:" << endl
+        << board << endl;
     }
 };

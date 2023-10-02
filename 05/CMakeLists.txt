@@ -7,5 +7,7 @@ add_executable(main main.cpp
         chess/color.cpp
         chess/Piece.cpp
         chess/chessboard.cpp
+        chess/king.cpp
+        chess/knight.cpp
 )
 add_executable(lecture lecture/unique_pointer.cpp)

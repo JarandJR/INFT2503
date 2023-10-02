@@ -1,18 +1,18 @@
 #include <iostream>
 #include <memory>
 #include "chess/chessboard.cpp"
-#include "chess/color.cpp"
+#include "chess/knight.cpp"
 
 using namespace std;
 
 int main() {
     ChessBoard board;
-    board.squares[4][0] = make_unique<ChessBoard::King>(Color::WHITE);
-    board.squares[1][0] = make_unique<ChessBoard::Knight>(Color::WHITE);
-    board.squares[6][0] = make_unique<ChessBoard::Knight>(Color::WHITE);
-    board.squares[4][7] = make_unique<ChessBoard::King>(Color::BLACK);
-    board.squares[1][7] = make_unique<ChessBoard::Knight>(Color::BLACK);
-    board.squares[6][7] = make_unique<ChessBoard::Knight>(Color::BLACK);
+    board.squares[4][0] = make_unique<King>(Color::WHITE);
+    board.squares[1][0] = make_unique<Knight>(Color::WHITE);
+    board.squares[6][0] = make_unique<Knight>(Color::WHITE);
+    board.squares[4][7] = make_unique<King>(Color::BLACK);
+    board.squares[1][7] = make_unique<Knight>(Color::BLACK);
+    board.squares[6][7] = make_unique<Knight>(Color::BLACK);
 
     cout << "Invalid moves:" << endl;
     board.move_piece("e3", "e2");
