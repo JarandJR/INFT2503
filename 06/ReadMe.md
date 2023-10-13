@@ -17,7 +17,7 @@ Task 1 can be built and run directly using the CMakeLists file provided in the p
    cd build
    cmake ..
    make
-   ./Task1```
+   ./Task1
 
 # Task 2
 
@@ -33,7 +33,7 @@ Task 2 can be built and run inside a Docker container, especially if you are usi
 
    ```bash
    docker-compose build
-   docker-compose up```
+   docker-compose up
 
 4. Or just normally if you have boost installed:
      ```bash
