@@ -1,0 +1,11 @@
+b) Teori: Forklar hvordan 5 - 3 - fraction1 - 7 - fraction2 blir tolket. Hvilke versjoner av
+operatoren - blir brukt?
+
+I c++ går det fra venstre til høyre.
+Så hvis vi setter fraction1 = 1/2 og fraction2 = 1/4
+blir utregningen tolket som følgende:
+    1. (((5 - 3) - 1/2) - 7) - 1/4 =
+    2. ((2 - 1/2) - 7) - 1/4 =
+    3. (3/2 - 7) - 1/4 =
+    4. -11/2 - 1/4 =
+    5. -23/4
