@@ -10,4 +10,3 @@ add_executable(main main.cpp
         chess/king.cpp
         chess/knight.cpp
 )
-add_executable(lecture lecture/unique_pointer.cpp)
