@@ -1,8 +1,4 @@
 #include "Fraction.h"
-#include <cmath>
-#include <iostream>
-#include <sstream>
-#include <string>
 
 Fraction::Fraction() : numerator(0), denominator(1) {}
 
